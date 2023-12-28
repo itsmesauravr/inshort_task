@@ -2,6 +2,7 @@ part of 'books_mark_bloc.dart';
 
 @freezed
 class BooksMarkEvent with _$BooksMarkEvent {
+  const factory BooksMarkEvent.changeHeaderTitle(String title) = _ChangeHeaderTitle;
   const factory BooksMarkEvent.addRemoveBooksMark(BooksMarkDto booksMarkDto) = _AddRemoveBooksMark;
   const factory BooksMarkEvent.isBookMarked(String title) = _IsBookMarked;
   const factory BooksMarkEvent.getRemoveBooksMark(String title) = _GetRemoveBooksMark;

@@ -21,9 +21,9 @@ class BooksMarkOverviewPage extends StatelessWidget {
         builder: (context, state) {
           return Scaffold(
             backgroundColor: kOnPrimaryColor,
-            body: BooksMarkBody(
-              state: state.failureOrSuccess,
-            ),
+            body:BooksMarkBody(
+                    state: state.failureOrSuccess,
+                  ),
           );
         },
       ),

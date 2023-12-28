@@ -16,14 +16,19 @@ part 'books_mark_bloc.freezed.dart';
 class BooksMarkBloc extends Bloc<BooksMarkEvent, BooksMarkState> {
   final IBooksMarkRepository _booksMarkRepository;
   BooksMarkBloc(this._booksMarkRepository) : super(BooksMarkState.initial()) {
-    on<_AddRemoveBooksMark>((event, emit) => _onAddBooksMark(event, emit));
+    on<_ChangeHeaderTitle>((event, emit) => _onChangeHeaderTitle(event, emit));
+    on<_AddRemoveBooksMark>((event, emit) => _onAddRemoveBooksMark(event, emit));
     on<_GetBooksMark>((event, emit) => _onGetBooksMark(event, emit));
     on<_IsBookMarked>((event, emit) => _onIsBookMarked(event, emit));
     on<_GetRemoveBooksMark>(
         (event, emit) => _onGetRemoveBooksMark(event, emit));
   }
+  _onChangeHeaderTitle(
+      _ChangeHeaderTitle event, Emitter<BooksMarkState> emit) async {
+    emit(state.copyWith(headerTitle: event.title));
+  }
 
-  _onAddBooksMark(
+  _onAddRemoveBooksMark(
       _AddRemoveBooksMark event, Emitter<BooksMarkState> emit) async {
     final failureOrSuccess = await _booksMarkRepository.addRemoveBooksMark(
         booksMarkDto: event.booksMarkDto);

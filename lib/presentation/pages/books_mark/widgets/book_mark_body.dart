@@ -4,12 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:inshort_task/application/books_mark/books_mark_bloc.dart';
 import 'package:inshort_task/infrastructure/books_mark/books_mark_dto.dart';
 import 'package:inshort_task/presentation/core/utils/app_color/app_color.dart';
 import 'package:inshort_task/presentation/core/utils/app_padding/app_padding.dart';
 import 'package:inshort_task/presentation/core/utils/app_sized_box/app_sized_box.dart';
 import 'package:inshort_task/presentation/core/utils/app_text_style/app_text_style.dart';
+import 'package:inshort_task/presentation/pages/home/home_page.dart';
 import 'package:inshort_task/presentation/pages/home/widgets/home_over_view_page.dart';
 
 class BooksMarkBody extends StatelessWidget {
@@ -23,11 +25,30 @@ class BooksMarkBody extends StatelessWidget {
     int? indexNotifier;
     return state.isEmpty
         ? Center(
-            child: Text(
-              'No Bookmarks',
-              style: kTextStyleBody.copyWith(
-                fontSize: 14,
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  'assets/svg/book_mark.svg',
+                  height: 200,
+                  width: 200,
+                ),
+                kHeight10,
+                Text(
+                  'No Bookmarks',
+                  style: kTextStyleTitle.copyWith(
+                    fontSize: 20.sp,
+                  ),
+                ),
+                kHeight10,
+                Text(
+                  'Save stories to read later',
+                  style: kTextStyleBody.copyWith(
+                    fontSize: 14.sp,
+                    color: kOnSecondaryColor.withOpacity(0.5),
+                  ),
+                ),
+              ],
             ),
           )
         : Stack(
@@ -183,6 +204,10 @@ class BooksMarkBody extends StatelessWidget {
                           ),
                           IconButton(
                             onPressed: () {
+                              FlushbarHelper.createInformation(
+                                message: 'Removed from Bookmarks',
+                                duration: const Duration(seconds: 1),
+                              ).show(context);
                               context.read<BooksMarkBloc>().add(
                                   BooksMarkEvent.getRemoveBooksMark(
                                       state[indexNotifier ?? 0].title));

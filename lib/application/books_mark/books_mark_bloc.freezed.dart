@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$BooksMarkEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String title) changeHeaderTitle,
     required TResult Function(BooksMarkDto booksMarkDto) addRemoveBooksMark,
     required TResult Function(String title) isBookMarked,
     required TResult Function(String title) getRemoveBooksMark,
@@ -26,6 +27,7 @@ mixin _$BooksMarkEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String title)? changeHeaderTitle,
     TResult? Function(BooksMarkDto booksMarkDto)? addRemoveBooksMark,
     TResult? Function(String title)? isBookMarked,
     TResult? Function(String title)? getRemoveBooksMark,
@@ -34,6 +36,7 @@ mixin _$BooksMarkEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String title)? changeHeaderTitle,
     TResult Function(BooksMarkDto booksMarkDto)? addRemoveBooksMark,
     TResult Function(String title)? isBookMarked,
     TResult Function(String title)? getRemoveBooksMark,
@@ -43,6 +46,7 @@ mixin _$BooksMarkEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeHeaderTitle value) changeHeaderTitle,
     required TResult Function(_AddRemoveBooksMark value) addRemoveBooksMark,
     required TResult Function(_IsBookMarked value) isBookMarked,
     required TResult Function(_GetRemoveBooksMark value) getRemoveBooksMark,
@@ -51,6 +55,7 @@ mixin _$BooksMarkEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeHeaderTitle value)? changeHeaderTitle,
     TResult? Function(_AddRemoveBooksMark value)? addRemoveBooksMark,
     TResult? Function(_IsBookMarked value)? isBookMarked,
     TResult? Function(_GetRemoveBooksMark value)? getRemoveBooksMark,
@@ -59,6 +64,7 @@ mixin _$BooksMarkEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeHeaderTitle value)? changeHeaderTitle,
     TResult Function(_AddRemoveBooksMark value)? addRemoveBooksMark,
     TResult Function(_IsBookMarked value)? isBookMarked,
     TResult Function(_GetRemoveBooksMark value)? getRemoveBooksMark,
@@ -84,6 +90,159 @@ class _$BooksMarkEventCopyWithImpl<$Res, $Val extends BooksMarkEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$ChangeHeaderTitleImplCopyWith<$Res> {
+  factory _$$ChangeHeaderTitleImplCopyWith(_$ChangeHeaderTitleImpl value,
+          $Res Function(_$ChangeHeaderTitleImpl) then) =
+      __$$ChangeHeaderTitleImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String title});
+}
+
+/// @nodoc
+class __$$ChangeHeaderTitleImplCopyWithImpl<$Res>
+    extends _$BooksMarkEventCopyWithImpl<$Res, _$ChangeHeaderTitleImpl>
+    implements _$$ChangeHeaderTitleImplCopyWith<$Res> {
+  __$$ChangeHeaderTitleImplCopyWithImpl(_$ChangeHeaderTitleImpl _value,
+      $Res Function(_$ChangeHeaderTitleImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? title = null,
+  }) {
+    return _then(_$ChangeHeaderTitleImpl(
+      null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeHeaderTitleImpl implements _ChangeHeaderTitle {
+  const _$ChangeHeaderTitleImpl(this.title);
+
+  @override
+  final String title;
+
+  @override
+  String toString() {
+    return 'BooksMarkEvent.changeHeaderTitle(title: $title)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeHeaderTitleImpl &&
+            (identical(other.title, title) || other.title == title));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, title);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeHeaderTitleImplCopyWith<_$ChangeHeaderTitleImpl> get copyWith =>
+      __$$ChangeHeaderTitleImplCopyWithImpl<_$ChangeHeaderTitleImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String title) changeHeaderTitle,
+    required TResult Function(BooksMarkDto booksMarkDto) addRemoveBooksMark,
+    required TResult Function(String title) isBookMarked,
+    required TResult Function(String title) getRemoveBooksMark,
+    required TResult Function() getBooksMark,
+  }) {
+    return changeHeaderTitle(title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String title)? changeHeaderTitle,
+    TResult? Function(BooksMarkDto booksMarkDto)? addRemoveBooksMark,
+    TResult? Function(String title)? isBookMarked,
+    TResult? Function(String title)? getRemoveBooksMark,
+    TResult? Function()? getBooksMark,
+  }) {
+    return changeHeaderTitle?.call(title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String title)? changeHeaderTitle,
+    TResult Function(BooksMarkDto booksMarkDto)? addRemoveBooksMark,
+    TResult Function(String title)? isBookMarked,
+    TResult Function(String title)? getRemoveBooksMark,
+    TResult Function()? getBooksMark,
+    required TResult orElse(),
+  }) {
+    if (changeHeaderTitle != null) {
+      return changeHeaderTitle(title);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeHeaderTitle value) changeHeaderTitle,
+    required TResult Function(_AddRemoveBooksMark value) addRemoveBooksMark,
+    required TResult Function(_IsBookMarked value) isBookMarked,
+    required TResult Function(_GetRemoveBooksMark value) getRemoveBooksMark,
+    required TResult Function(_GetBooksMark value) getBooksMark,
+  }) {
+    return changeHeaderTitle(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeHeaderTitle value)? changeHeaderTitle,
+    TResult? Function(_AddRemoveBooksMark value)? addRemoveBooksMark,
+    TResult? Function(_IsBookMarked value)? isBookMarked,
+    TResult? Function(_GetRemoveBooksMark value)? getRemoveBooksMark,
+    TResult? Function(_GetBooksMark value)? getBooksMark,
+  }) {
+    return changeHeaderTitle?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeHeaderTitle value)? changeHeaderTitle,
+    TResult Function(_AddRemoveBooksMark value)? addRemoveBooksMark,
+    TResult Function(_IsBookMarked value)? isBookMarked,
+    TResult Function(_GetRemoveBooksMark value)? getRemoveBooksMark,
+    TResult Function(_GetBooksMark value)? getBooksMark,
+    required TResult orElse(),
+  }) {
+    if (changeHeaderTitle != null) {
+      return changeHeaderTitle(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeHeaderTitle implements BooksMarkEvent {
+  const factory _ChangeHeaderTitle(final String title) =
+      _$ChangeHeaderTitleImpl;
+
+  String get title;
+  @JsonKey(ignore: true)
+  _$$ChangeHeaderTitleImplCopyWith<_$ChangeHeaderTitleImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -152,6 +311,7 @@ class _$AddRemoveBooksMarkImpl implements _AddRemoveBooksMark {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String title) changeHeaderTitle,
     required TResult Function(BooksMarkDto booksMarkDto) addRemoveBooksMark,
     required TResult Function(String title) isBookMarked,
     required TResult Function(String title) getRemoveBooksMark,
@@ -163,6 +323,7 @@ class _$AddRemoveBooksMarkImpl implements _AddRemoveBooksMark {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String title)? changeHeaderTitle,
     TResult? Function(BooksMarkDto booksMarkDto)? addRemoveBooksMark,
     TResult? Function(String title)? isBookMarked,
     TResult? Function(String title)? getRemoveBooksMark,
@@ -174,6 +335,7 @@ class _$AddRemoveBooksMarkImpl implements _AddRemoveBooksMark {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String title)? changeHeaderTitle,
     TResult Function(BooksMarkDto booksMarkDto)? addRemoveBooksMark,
     TResult Function(String title)? isBookMarked,
     TResult Function(String title)? getRemoveBooksMark,
@@ -189,6 +351,7 @@ class _$AddRemoveBooksMarkImpl implements _AddRemoveBooksMark {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeHeaderTitle value) changeHeaderTitle,
     required TResult Function(_AddRemoveBooksMark value) addRemoveBooksMark,
     required TResult Function(_IsBookMarked value) isBookMarked,
     required TResult Function(_GetRemoveBooksMark value) getRemoveBooksMark,
@@ -200,6 +363,7 @@ class _$AddRemoveBooksMarkImpl implements _AddRemoveBooksMark {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeHeaderTitle value)? changeHeaderTitle,
     TResult? Function(_AddRemoveBooksMark value)? addRemoveBooksMark,
     TResult? Function(_IsBookMarked value)? isBookMarked,
     TResult? Function(_GetRemoveBooksMark value)? getRemoveBooksMark,
@@ -211,6 +375,7 @@ class _$AddRemoveBooksMarkImpl implements _AddRemoveBooksMark {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeHeaderTitle value)? changeHeaderTitle,
     TResult Function(_AddRemoveBooksMark value)? addRemoveBooksMark,
     TResult Function(_IsBookMarked value)? isBookMarked,
     TResult Function(_GetRemoveBooksMark value)? getRemoveBooksMark,
@@ -298,6 +463,7 @@ class _$IsBookMarkedImpl implements _IsBookMarked {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String title) changeHeaderTitle,
     required TResult Function(BooksMarkDto booksMarkDto) addRemoveBooksMark,
     required TResult Function(String title) isBookMarked,
     required TResult Function(String title) getRemoveBooksMark,
@@ -309,6 +475,7 @@ class _$IsBookMarkedImpl implements _IsBookMarked {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String title)? changeHeaderTitle,
     TResult? Function(BooksMarkDto booksMarkDto)? addRemoveBooksMark,
     TResult? Function(String title)? isBookMarked,
     TResult? Function(String title)? getRemoveBooksMark,
@@ -320,6 +487,7 @@ class _$IsBookMarkedImpl implements _IsBookMarked {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String title)? changeHeaderTitle,
     TResult Function(BooksMarkDto booksMarkDto)? addRemoveBooksMark,
     TResult Function(String title)? isBookMarked,
     TResult Function(String title)? getRemoveBooksMark,
@@ -335,6 +503,7 @@ class _$IsBookMarkedImpl implements _IsBookMarked {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeHeaderTitle value) changeHeaderTitle,
     required TResult Function(_AddRemoveBooksMark value) addRemoveBooksMark,
     required TResult Function(_IsBookMarked value) isBookMarked,
     required TResult Function(_GetRemoveBooksMark value) getRemoveBooksMark,
@@ -346,6 +515,7 @@ class _$IsBookMarkedImpl implements _IsBookMarked {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeHeaderTitle value)? changeHeaderTitle,
     TResult? Function(_AddRemoveBooksMark value)? addRemoveBooksMark,
     TResult? Function(_IsBookMarked value)? isBookMarked,
     TResult? Function(_GetRemoveBooksMark value)? getRemoveBooksMark,
@@ -357,6 +527,7 @@ class _$IsBookMarkedImpl implements _IsBookMarked {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeHeaderTitle value)? changeHeaderTitle,
     TResult Function(_AddRemoveBooksMark value)? addRemoveBooksMark,
     TResult Function(_IsBookMarked value)? isBookMarked,
     TResult Function(_GetRemoveBooksMark value)? getRemoveBooksMark,
@@ -444,6 +615,7 @@ class _$GetRemoveBooksMarkImpl implements _GetRemoveBooksMark {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String title) changeHeaderTitle,
     required TResult Function(BooksMarkDto booksMarkDto) addRemoveBooksMark,
     required TResult Function(String title) isBookMarked,
     required TResult Function(String title) getRemoveBooksMark,
@@ -455,6 +627,7 @@ class _$GetRemoveBooksMarkImpl implements _GetRemoveBooksMark {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String title)? changeHeaderTitle,
     TResult? Function(BooksMarkDto booksMarkDto)? addRemoveBooksMark,
     TResult? Function(String title)? isBookMarked,
     TResult? Function(String title)? getRemoveBooksMark,
@@ -466,6 +639,7 @@ class _$GetRemoveBooksMarkImpl implements _GetRemoveBooksMark {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String title)? changeHeaderTitle,
     TResult Function(BooksMarkDto booksMarkDto)? addRemoveBooksMark,
     TResult Function(String title)? isBookMarked,
     TResult Function(String title)? getRemoveBooksMark,
@@ -481,6 +655,7 @@ class _$GetRemoveBooksMarkImpl implements _GetRemoveBooksMark {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeHeaderTitle value) changeHeaderTitle,
     required TResult Function(_AddRemoveBooksMark value) addRemoveBooksMark,
     required TResult Function(_IsBookMarked value) isBookMarked,
     required TResult Function(_GetRemoveBooksMark value) getRemoveBooksMark,
@@ -492,6 +667,7 @@ class _$GetRemoveBooksMarkImpl implements _GetRemoveBooksMark {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeHeaderTitle value)? changeHeaderTitle,
     TResult? Function(_AddRemoveBooksMark value)? addRemoveBooksMark,
     TResult? Function(_IsBookMarked value)? isBookMarked,
     TResult? Function(_GetRemoveBooksMark value)? getRemoveBooksMark,
@@ -503,6 +679,7 @@ class _$GetRemoveBooksMarkImpl implements _GetRemoveBooksMark {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeHeaderTitle value)? changeHeaderTitle,
     TResult Function(_AddRemoveBooksMark value)? addRemoveBooksMark,
     TResult Function(_IsBookMarked value)? isBookMarked,
     TResult Function(_GetRemoveBooksMark value)? getRemoveBooksMark,
@@ -564,6 +741,7 @@ class _$GetBooksMarkImpl implements _GetBooksMark {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String title) changeHeaderTitle,
     required TResult Function(BooksMarkDto booksMarkDto) addRemoveBooksMark,
     required TResult Function(String title) isBookMarked,
     required TResult Function(String title) getRemoveBooksMark,
@@ -575,6 +753,7 @@ class _$GetBooksMarkImpl implements _GetBooksMark {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String title)? changeHeaderTitle,
     TResult? Function(BooksMarkDto booksMarkDto)? addRemoveBooksMark,
     TResult? Function(String title)? isBookMarked,
     TResult? Function(String title)? getRemoveBooksMark,
@@ -586,6 +765,7 @@ class _$GetBooksMarkImpl implements _GetBooksMark {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String title)? changeHeaderTitle,
     TResult Function(BooksMarkDto booksMarkDto)? addRemoveBooksMark,
     TResult Function(String title)? isBookMarked,
     TResult Function(String title)? getRemoveBooksMark,
@@ -601,6 +781,7 @@ class _$GetBooksMarkImpl implements _GetBooksMark {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_ChangeHeaderTitle value) changeHeaderTitle,
     required TResult Function(_AddRemoveBooksMark value) addRemoveBooksMark,
     required TResult Function(_IsBookMarked value) isBookMarked,
     required TResult Function(_GetRemoveBooksMark value) getRemoveBooksMark,
@@ -612,6 +793,7 @@ class _$GetBooksMarkImpl implements _GetBooksMark {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ChangeHeaderTitle value)? changeHeaderTitle,
     TResult? Function(_AddRemoveBooksMark value)? addRemoveBooksMark,
     TResult? Function(_IsBookMarked value)? isBookMarked,
     TResult? Function(_GetRemoveBooksMark value)? getRemoveBooksMark,
@@ -623,6 +805,7 @@ class _$GetBooksMarkImpl implements _GetBooksMark {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ChangeHeaderTitle value)? changeHeaderTitle,
     TResult Function(_AddRemoveBooksMark value)? addRemoveBooksMark,
     TResult Function(_IsBookMarked value)? isBookMarked,
     TResult Function(_GetRemoveBooksMark value)? getRemoveBooksMark,
@@ -642,6 +825,7 @@ abstract class _GetBooksMark implements BooksMarkEvent {
 
 /// @nodoc
 mixin _$BooksMarkState {
+  String get headerTitle => throw _privateConstructorUsedError;
   bool get isBookMarked => throw _privateConstructorUsedError;
   List<BooksMarkDto> get failureOrSuccess => throw _privateConstructorUsedError;
 
@@ -656,7 +840,10 @@ abstract class $BooksMarkStateCopyWith<$Res> {
           BooksMarkState value, $Res Function(BooksMarkState) then) =
       _$BooksMarkStateCopyWithImpl<$Res, BooksMarkState>;
   @useResult
-  $Res call({bool isBookMarked, List<BooksMarkDto> failureOrSuccess});
+  $Res call(
+      {String headerTitle,
+      bool isBookMarked,
+      List<BooksMarkDto> failureOrSuccess});
 }
 
 /// @nodoc
@@ -672,10 +859,15 @@ class _$BooksMarkStateCopyWithImpl<$Res, $Val extends BooksMarkState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? headerTitle = null,
     Object? isBookMarked = null,
     Object? failureOrSuccess = null,
   }) {
     return _then(_value.copyWith(
+      headerTitle: null == headerTitle
+          ? _value.headerTitle
+          : headerTitle // ignore: cast_nullable_to_non_nullable
+              as String,
       isBookMarked: null == isBookMarked
           ? _value.isBookMarked
           : isBookMarked // ignore: cast_nullable_to_non_nullable
@@ -696,7 +888,10 @@ abstract class _$$BooksMarkStateImplCopyWith<$Res>
       __$$BooksMarkStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isBookMarked, List<BooksMarkDto> failureOrSuccess});
+  $Res call(
+      {String headerTitle,
+      bool isBookMarked,
+      List<BooksMarkDto> failureOrSuccess});
 }
 
 /// @nodoc
@@ -710,10 +905,15 @@ class __$$BooksMarkStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? headerTitle = null,
     Object? isBookMarked = null,
     Object? failureOrSuccess = null,
   }) {
     return _then(_$BooksMarkStateImpl(
+      headerTitle: null == headerTitle
+          ? _value.headerTitle
+          : headerTitle // ignore: cast_nullable_to_non_nullable
+              as String,
       isBookMarked: null == isBookMarked
           ? _value.isBookMarked
           : isBookMarked // ignore: cast_nullable_to_non_nullable
@@ -730,10 +930,13 @@ class __$$BooksMarkStateImplCopyWithImpl<$Res>
 
 class _$BooksMarkStateImpl implements _BooksMarkState {
   const _$BooksMarkStateImpl(
-      {required this.isBookMarked,
+      {required this.headerTitle,
+      required this.isBookMarked,
       required final List<BooksMarkDto> failureOrSuccess})
       : _failureOrSuccess = failureOrSuccess;
 
+  @override
+  final String headerTitle;
   @override
   final bool isBookMarked;
   final List<BooksMarkDto> _failureOrSuccess;
@@ -747,7 +950,7 @@ class _$BooksMarkStateImpl implements _BooksMarkState {
 
   @override
   String toString() {
-    return 'BooksMarkState(isBookMarked: $isBookMarked, failureOrSuccess: $failureOrSuccess)';
+    return 'BooksMarkState(headerTitle: $headerTitle, isBookMarked: $isBookMarked, failureOrSuccess: $failureOrSuccess)';
   }
 
   @override
@@ -755,6 +958,8 @@ class _$BooksMarkStateImpl implements _BooksMarkState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BooksMarkStateImpl &&
+            (identical(other.headerTitle, headerTitle) ||
+                other.headerTitle == headerTitle) &&
             (identical(other.isBookMarked, isBookMarked) ||
                 other.isBookMarked == isBookMarked) &&
             const DeepCollectionEquality()
@@ -762,7 +967,7 @@ class _$BooksMarkStateImpl implements _BooksMarkState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isBookMarked,
+  int get hashCode => Object.hash(runtimeType, headerTitle, isBookMarked,
       const DeepCollectionEquality().hash(_failureOrSuccess));
 
   @JsonKey(ignore: true)
@@ -775,10 +980,13 @@ class _$BooksMarkStateImpl implements _BooksMarkState {
 
 abstract class _BooksMarkState implements BooksMarkState {
   const factory _BooksMarkState(
-          {required final bool isBookMarked,
+          {required final String headerTitle,
+          required final bool isBookMarked,
           required final List<BooksMarkDto> failureOrSuccess}) =
       _$BooksMarkStateImpl;
 
+  @override
+  String get headerTitle;
   @override
   bool get isBookMarked;
   @override

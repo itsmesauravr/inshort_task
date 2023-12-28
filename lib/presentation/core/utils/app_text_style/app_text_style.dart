@@ -4,7 +4,7 @@ import 'package:inshort_task/presentation/core/utils/app_color/app_color.dart';
 
 final kTextStyleTitle = TextStyle(
   overflow: TextOverflow.ellipsis,
-  fontSize: 28.sp,
+  fontSize: 24.sp,
   fontWeight: FontWeight.w700,
   color: kOnSecondaryColor,
 );
@@ -21,4 +21,11 @@ final  kTextStyleHeadline = TextStyle(
   fontSize: 20.sp,
   fontWeight: FontWeight.w500,
   color: kOnSecondaryColor,
+);
+
+final  kTextStyleButton= TextStyle(
+  overflow: TextOverflow.ellipsis,
+  fontSize: 16.sp,
+  fontWeight: FontWeight.w500,
+  color: kOnPrimaryColor,
 );

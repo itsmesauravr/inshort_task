@@ -20,10 +20,9 @@ class HomeBody extends StatelessWidget {
 
   final List<NewsData> state;
   final ValueNotifier<bool> _isAppBarVisible = ValueNotifier<bool>(false);
-
+  final ValueNotifier<int> _indexNotifier = ValueNotifier<int>(0);
   @override
   Widget build(BuildContext context) {
-    int? indexNotifier;
     return Stack(
       children: [
         GestureDetector(
@@ -36,7 +35,7 @@ class HomeBody extends StatelessWidget {
                 context,
                 CupertinoPageRoute(
                   builder: (context) => NewsWebView(
-                    url: state[indexNotifier ?? 0].readMoreUrl,
+                    url: state[_indexNotifier.value ?? 0].readMoreUrl,
                   ),
                 ),
               );
@@ -46,11 +45,11 @@ class HomeBody extends StatelessWidget {
             scrollDirection: Axis.vertical,
             onPageChanged: (index) async {
               _isAppBarVisible.value = false;
+              _indexNotifier.value = index ?? 0;
             },
             itemCount: state.length,
             transformer: InshortsPageTransformer(),
             itemBuilder: (context, index) {
-              indexNotifier = index;
               return Column(
                 children: [
                   Expanded(
@@ -114,7 +113,19 @@ class HomeBody extends StatelessWidget {
                   toolbarHeight: kToolbarHeight,
                   backgroundColor: kOnPrimaryColor,
                   title: Text(
-                    'Inshorts',
+                    context
+                            .read<BooksMarkBloc>()
+                            .state
+                            .headerTitle
+                            .toString()
+                            .substring(0, 1)
+                            .toUpperCase() +
+                        context
+                            .read<BooksMarkBloc>()
+                            .state
+                            .headerTitle
+                            .toString()
+                            .substring(1),
                     style: kTextStyleTitle.copyWith(
                       fontSize: 20.sp,
                     ),
@@ -260,6 +271,10 @@ class HomeBody extends StatelessWidget {
                       onSelected: (value) {
                         BlocProvider.of<NewsBloc>(context)
                             .add(NewsEvent.getNews(value.toString()));
+                        context.read<BooksMarkBloc>().add(
+                              BooksMarkEvent.changeHeaderTitle(
+                                  value.toString()),
+                            );
                       },
                     ),
                   ],
@@ -311,27 +326,41 @@ class HomeBody extends StatelessWidget {
                       builder: (context, state1) {
                         context.read<BooksMarkBloc>().add(
                             BooksMarkEvent.isBookMarked(
-                                state[indexNotifier ?? 0].title));
+                                state[_indexNotifier.value ?? 0].title));
                         return IconButton(
                           onPressed: () {
                             context.read<BooksMarkBloc>().add(
                                   BooksMarkEvent.addRemoveBooksMark(
                                     BooksMarkDto(
-                                      author: state[indexNotifier ?? 0].author,
-                                      date: state[indexNotifier ?? 0].date,
-                                      id: state[indexNotifier ?? 0].id,
-                                      time: state[indexNotifier ?? 0].time,
-                                      title: state[indexNotifier ?? 0].title,
-                                      url: state[indexNotifier ?? 0].url,
-                                      content:
-                                          state[indexNotifier ?? 0].content,
-                                      imageUrl:
-                                          state[indexNotifier ?? 0].imageUrl,
+                                      author: state[_indexNotifier.value ?? 0]
+                                          .author,
+                                      date:
+                                          state[_indexNotifier.value ?? 0].date,
+                                      id: state[_indexNotifier.value ?? 0].id,
+                                      time:
+                                          state[_indexNotifier.value ?? 0].time,
+                                      title: state[_indexNotifier.value ?? 0]
+                                          .title,
+                                      url: state[_indexNotifier.value ?? 0].url,
+                                      content: state[_indexNotifier.value ?? 0]
+                                          .content,
+                                      imageUrl: state[_indexNotifier.value ?? 0]
+                                          .imageUrl,
                                       readMoreUrl:
-                                          state[indexNotifier ?? 0].readMoreUrl,
+                                          state[_indexNotifier.value ?? 0]
+                                              .readMoreUrl,
                                     ),
                                   ),
                                 );
+                            state1.isBookMarked
+                                ? FlushbarHelper.createInformation(
+                                    message: 'Remove from Bookmarks',
+                                    duration: const Duration(seconds: 1),
+                                  ).show(context)
+                                : FlushbarHelper.createInformation(
+                                    message: 'Added to Bookmarks',
+                                    duration: const Duration(seconds: 1),
+                                  ).show(context);
                           },
                           icon: Icon(
                             state1.isBookMarked

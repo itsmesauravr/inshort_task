@@ -16,7 +16,6 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
   NewsBloc(this._newsRepository) : super(const NewsState.initial()) {
     on<_GetNews>((event, emit) => _getNewsToState(event, emit));
   }
-
   Future _getNewsToState(_GetNews event, Emitter<NewsState> emit) async {
     Either<NewsFailure, List<NewsData>> failureOrSuccess;
     emit(const NewsState.loadInProgress());

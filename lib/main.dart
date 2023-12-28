@@ -6,7 +6,7 @@ import 'package:inshort_task/presentation/core/app_widget.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await BooksMarkDb.ins.initHive();
   await configureInjection(Environment.prod);
+  await BooksMarkDb.ins.initHive();
   runApp(const AppWidget());
 }
